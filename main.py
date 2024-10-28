@@ -12,7 +12,7 @@ class MyServer(BaseHTTPRequestHandler):
     Специальный класс, который отвечает за
     обработку входящих запросов от клиентов
     """
-    def do_GET(self):
+    def do_get(self):
         """ Метод для обработки входящих GET-запросов
         """
         self.send_response(200)  # Отправка кода ответа
@@ -23,7 +23,7 @@ class MyServer(BaseHTTPRequestHandler):
         # Завершение формирования заголовков ответа
         self.wfile.write(bytes(content, "utf-8"))  # Тело ответа
 
-    def do_POST(self):
+    def do_post(self):
         content_length = int(self.headers["Content-Length"])
         post_data = self.rfile.read(content_length)
         print(post_data)
